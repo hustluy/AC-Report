@@ -18,6 +18,6 @@ footer {margin-top:20px;padding:20px 0;border-top:2px solid black}
 
 @font-face {
     font-family:HEADLINE;
-    src:url(/assets/font/headoh.ttf);
+    src:url(assets/font/headoh.ttf);
     font-weight:400;
 }
