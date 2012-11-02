@@ -1,4 +1,5 @@
 
+baseurl: /AC-Report
 pygments: true
 lsi: true
-permalink: none
+permalink: /:categories/:title/
