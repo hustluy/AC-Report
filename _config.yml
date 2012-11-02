@@ -1,9 +1,4 @@
 
-safe: true
-auto: true
 pygments: true
-lsi: false
-permalink: /:categories/:title
-exclude:
-  [".rvmrc", ".rbenv-version", "README.md", "Rakefile",
-  "changelog.md"]
+lsi: true
+permalink: none
