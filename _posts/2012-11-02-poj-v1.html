@@ -1,0 +1,97 @@
+
+---
+layout: post
+title: v1
+category: POJ
+tags:
+date: 2012-11-02 17:15:12 CST
+---
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">POJ v1</h1>
+
+<p><i>NOTE</i>: For the source codes, <a href="http://github.com/gongzhitaao/AC-Report">http://github.com/gongzhitaao/AC-Report</a>.
+</p>
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 1001 Exponentiation</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 1001 Exponentiation</h2>
+<div class="outline-text-2" id="text-1">
+
+<p> <span class="timestamp-wrapper"> <span class="timestamp">2012-11-02 Fri 16:51</span></span><br/>
+</p>
+<p>
+Two things to implement:
+</p>
+<ol>
+<li>Manually multiply two integers in string form. There are many
+   <a href="http://en.wikipedia.org/wiki/Multiplication_algorithm">Multiplication Algorithm</a>s, just choose one you like :)
+
+</li>
+<li>Do Binary Exponentiation, i.e. <a href="http://en.wikipedia.org/wiki/Exponentiation_by_squaring">Expenetiatiion By Squaring</a>. Which is
+   clearly illustrated <a href="http://mathforum.org/library/drmath/view/55603.html">here</a>:
+
+<p>
+   The fastest exponentiations to perform are exponentiations of the
+   type a<sup>2</sup><sup>n</sup>, that is, where the exponent is a power of two. This
+   is because you can find these powers by repeatedly squaring the
+   number.
+</p>
+<p>
+   So I can find 5<sup>2</sup> with only one multiplication, 5<sup>4</sup> = (5<sup>2</sup>)<sup>2</sup> with
+   only two, 5<sup>8</sup> = ((5<sup>2</sup>)<sup>2</sup>)<sup>2</sup> in three, and so forth.
+</p>
+<p>
+   This leads to the method of binary exponentiation:
+</p>
+<ol>
+<li>Write the exponent as a sum of powers of two.
+</li>
+<li>Find the base to each of the powers of two that appear in the
+      exponent.
+</li>
+<li>Multiply those powers together.
+
+</li>
+</ol>
+
+<p>   To illustrate with 5<sup>21</sup>:
+</p>
+<ol>
+<li>21 = 16 + 4 + 1
+</li>
+<li>5<sup>1</sup> = 5<br/>
+      5<sup>2</sup> = 5*5 = 25<br/>
+      5<sup>4</sup> = 25 * 25 = 625<br/>
+      5<sup>8</sup> = 625 * 625 = 390625<br/>
+      5<sup>16</sup> = 390625 * 390625 = 152587890625<br/>
+</li>
+<li>5<sup>21</sup> = 5<sup>16</sup> * 5<sup>4</sup> * 5 = 476837158203125
+</li>
+</ol>
+
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2012-11-02 17:15:12 CST</p>
+<p class="author">Author: Zhitao Gong</p>
+<p class="creator">Org version 7.8.02 with Emacs version 23</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
