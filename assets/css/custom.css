@@ -1,0 +1,23 @@
+
+footer {margin-top:20px;padding:20px 0;border-top:2px solid black}
+
+.center {text-align:center}
+
+.logo-full-wrapper {margin-top:100px}
+.logo-icon-wrapper {margin:20px 0}
+
+.dark {background:black}
+
+.label {font-size:14px}
+
+.title {font:normal normal bold 25px/20px Georgia;margin-bottom:10px}
+.summary {color:gray}
+.content {margin-top:20px}
+
+.report-list {padding-top:40px}
+
+@font-face {
+    font-family:HEADLINE;
+    src:url(/assets/font/headoh.ttf);
+    font-weight:400;
+}
