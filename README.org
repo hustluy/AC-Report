@@ -1,0 +1,13 @@
+
+* Online Judge Problem Report
+
+This repo currently contains my report on problems on [[http://poj.org/][POJ]], [[http://acm.zju.edu.cn/onlinejudge/][ZOJ]] and [[http://uva.onlinejudge.org/][UVa
+Online Judge]].  I plan to finish as mush problems as I could.
+
+For every problem I will write a short hint [[http://gongzhitaao.github.com/OJ-Report/]].
+
+'+Besides the solutions, recently I plan to write a test data
+generator based on my AC code+'.
+
+Maybe we should not rely on data to discover the flaw of our logic. We
+don't always have enough data to work on =).
