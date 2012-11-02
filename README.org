@@ -1,9 +1,0 @@
-* UVa
-
-This repo contains my AC solutions to problems on [[http://uva.onlinejudge.org/][UVa Online Judge]]. I plan to finish as mush problems as I can. And of course, one by one.
-
-For every problem I will write a short hint on my personal website, [[http://www.gongzhitaao.org/][CodingRabbit]].
-
-'+Besides the solutions, recently I plan to write a test data generator based on my AC code+'.
-
-Maybe we should not rely on data to discover the flaw of our logic. We don't always have enough data to work on =).
