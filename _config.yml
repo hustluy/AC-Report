@@ -5,8 +5,6 @@ pygments: true
 lsi: true
 permalink: /:categories/:title/
 
-TZ=CST
-
 # custom config
 title: A+B PROBLEM
 author:
