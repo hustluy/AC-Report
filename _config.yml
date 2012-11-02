@@ -1,6 +1,12 @@
-
+# standard confi
 auto: true
 baseurl: /AC-Report
 pygments: true
 lsi: true
 permalink: /:categories/:title/
+
+# custom config
+title: A+B PROBLEM
+author:
+  name: Zhitao Gong
+  homepage: http://www.gongzhitaao.org

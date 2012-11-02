@@ -1,10 +1,5 @@
-{% include header.html %}
-
-<div class="logo-icon-wrapper center">
-  <a href="/">
-    <canvas id="logo-icon" width="650" height="230"></canvas></a>
-</div>
-
-{{content}}
-
-{% include footer.html %}
+---
+theme: org
+---
+{% include env/config %}
+{% include themes/org/default.html %}

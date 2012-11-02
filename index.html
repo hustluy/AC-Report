@@ -1,7 +1,9 @@
 ---
 layout: default
 ---
+
 <div class="row">
+
   <div class="span10 offset1">
     <div class="info">
       <dl class="dl-horizontal">
@@ -11,18 +13,22 @@ layout: default
           and <a href="http://acm.zju.edu.cn/">ZOJ</a></dd>
         <dt>Author</dt><dd><a href="http://www.gongzhitaao.org">Zhitao Gong</a></dd>
         <dt>Source</dt><dd><a href="http://github.com/gongzhitaao/AC-Report">github.com/gongzhitaao/AC-Report</a></dd>
-        <dt>Last Updated</dt><dd>{{site.time}}</dd>
+        <dt>Last Updated</dt><dd>{{ site.time }}</dd>
       </dl>
     </div>
+
     <div class="report-list">
       {% for cat in site.categories %}
       <div>
         <h1>{{ cat[0] }}</h1>
         {% for post in cat[1] %}
-        <a href="/AC-Report{{ post.url }}" class="label">{{post.title}}</a>
+        <a href="{{ site.baseurl }}{{ post.url }}"
+           class="label">{{ post.title }}</a>
         {% endfor %}
       </div>
       {% endfor %}
     </div>
+
   </div>
+
 </div>
