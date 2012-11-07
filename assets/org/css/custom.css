@@ -19,6 +19,9 @@ footer {margin-top:20px;padding:20px 0;border-top:2px solid black}
 
 @font-face {
     font-family:HEADLINE;
-    src:url(../font/headoh.ttf);
+    src:url("../font/headoh.eof") format("eof"),
+    url("../font/headoh.woff") format("woff"),
+    url("../font/headoh.ttf") format("truetype"),
+    url("../font/headoh.svg#HEADLINE") format("svg");
     font-weight:400;
 }
