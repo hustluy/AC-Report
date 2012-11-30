@@ -1,6 +1,5 @@
 # standard confi
 auto: true
-baseurl: /AC-Report
 pygments: true
 lsi: true
 permalink: /:categories/:title/
