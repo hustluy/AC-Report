@@ -1,12 +1,12 @@
 
-# Time-stamp: <2012-11-06 17:46:58 CST gongzhitaao>
+# Time-stamp: <2012-11-12 20:50:25 CST gongzhitaao>
 
 SHELL=/bin/bash
 
 CXX=g++
-CXXFLAGS=-lm -lcrypt -O2 -pipe -Wall
+CXXFLAGS=-lm -lcrypt -g -pipe -Wall
 
-PROGRAM=1009
+PROGRAM=1010
 TEST=$(PROGRAM)-test
 
 define run-test-batch
@@ -15,7 +15,8 @@ GOOD=0; \
 FAIL=1; \
 STAT=0; \
 for ((i = 0; i < LIMIT; ++i)); do \
-	./$(TEST); \
+	tmp=`mktemp $(PROGRAM).XXX`; \
+	./$(TEST) > $$tmp; \
 	diff <(./$(PROGRAM) < $(PROGRAM).in) $(PROGRAM).out; \
 	let "STAT = $$?"; \
 	if [[ $$STAT -eq $$FAIL ]]; then \
