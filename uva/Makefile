@@ -1,8 +1,8 @@
 
-TAR=115
+TAR=10006
 
 G++=g++
-CXXFLAGS=-lm -lcrypt -O2 -pipe -DONLINE_JUDGE -Wall
+CXXFLAGS=-lm -lcrypt -g -pipe -DONLINE_JUDGE -Wall
 
 all : $(TAR)
 
