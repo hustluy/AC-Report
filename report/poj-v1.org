@@ -1,0 +1,240 @@
+#+TITLE: POJ v1
+#+OPTIONS: ^:t
+#+MATHJAX: mathml: t
+
+/NOTE/: For the source codes, [[http://github.com/gongzhitaao/AC-Report]].
+
+* 1013 Counterfeit Dollar
+  [2013-04-15 Mon 15:36]
+
+  For the problem: [[http://poj.org/problem?id=1013]].
+
+  Generally two ways for this problem:
+
+1. Solve the problem yourself and find out all the possible solutions,
+   which is feasible but tedious.
+2. Simulating the process of solving this problem.
+   1) Initialy, all the coins are unobserved.
+   2) if even, then all the coins on the scale are good.
+   3) if up(down), then
+      - all the coins NOT on the scale are good
+      - all the coins on the left hand that are previously marked as
+        up(down), i.e. light(heavy), are good.
+      - all the coins on the right hand that are previously marked as
+        down(up), i.e. heavy(light), are good.
+
+   If a coin, previously marked as heavy, now appears on a light hand,
+   then this coin is a good one.  'Cause the bad one will always be
+   heavy or light.
+
+
+* 1012 Joseph
+  [2013-04-15 Mon 07:58]
+
+  For the proble: [[http://poj.org/problem?id=1012]].
+
+  The only optimization I could come up with is: $m$ could only be
+  $i*j$, where $i = 1, 2, 3, \dots$ and $j = k+1, k+2, \dots, 2*k-1$.
+
+  Store the original index, delete the item executed, i.e., moving items
+  behind one step forward.  This will take roughly 1 seccond.  So, I
+  have to precomputed all the answer to avoid the TLE.
+
+
+* 1011 Sticks
+  [2013-04-14 Sun 21:37]
+
+  For the problem: [[ttp://poj.org/problem?id=1011]].
+
+  This is the problem where I got stuck.  Actually this is a quite
+  straightforward search problem.  As we have at most 64 sticks, and we
+  could know the total length of all these sticks, we could try to put
+  the sticks together to =64, 63, ..., 1= sticks.  Try one by one,
+  output if we find one.
+
+  So the core of this problem: given =n= sticks and their length, see if
+  we could stick them together into =k= sticks with length =l=.  Try
+  with the simplest depth first search and the most straightfoward
+  prunning, you will get AC.
+
+
+* 1010 Stamps
+  [2012-11-30 Fri 14:36]
+
+  For the problem: [[http://poj.org/problem?id=1010]].
+
+  Holly shit! Totally I spent more than 24 hours on this problem.
+
+** An interpretation of the problem
+
+1. Given a sequence containing only positives, say, =3 2 1 1 1 1=, and
+   a number, you should pick at most *FOUR* numbers from the sequence
+   that adds up to the given number. The numbers from the sequence are
+   reusable.
+2. If no solution exists, print =none=. Otherwise, find the best
+   one(s) from the results you find with the following rules, in
+   sequence:
+
+   1) the most type count
+   2) the least total stamp count
+   3) the max single value
+
+   After this filtering, a) if only one result exists, print it. b) or
+   if more than one result exists, print =tie=.
+
+** Some notes
+
+1. We have different types of stamps, according to the specification
+   of the problem, no more than 25 types of stamps. But according to
+   google search results of *poj 1010*, most people believe that this
+   is misleading. Actual test cases might contain more than 25
+   types. Never mind, use =vector= to bypass this.
+2. Every type of stamp has a positive denomination. There might be
+   different types of stamps with the same denomination, i.e., the
+   following test case is valid:
+
+   #+begin_verse
+   : 1 1 1 1 1 0
+   #+end_verse
+
+   which means that we have 5 different types of stamps, all with the
+   same denomination.
+
+   So, one of the example input is wrong:
+
+   #+begin_verse
+   : 1 1 0 ; a new set of stamps (two of the same type)
+   #+end_verse
+
+   They are of different types, only with the same denomination. This
+   is really misleading!
+
+** Crack it
+
+   This is a search problem. In the most unlucky case, you've got to
+   search through the whole solution set. Firstly, what is the solution
+   set? *All sequences you could find that adds up to the given value*.
+
+   How to search for the result? It's a problem of [[http://en.wikipedia.org/wiki/Combination][Combination]]. Pick, say
+   3 numbers from the given sequence, and try using a total stamp count,
+   say, 4, see whether you could add up to the request value. If yes,
+   you've found an answer, do something to judge the answer, otherwise
+   continue.
+
+   Because in the end, we want to find the *best* answer s.t. the rules
+   given above. So we can adjust our search strategy so that once we find
+   an answer, we can stop searching. The strategy is as follows:
+
+1. Sort the given stamp value sequence in non-descending order.
+2. search in the following fashion:
+
+   #+begin_src c++
+    // we want the most stamp type count
+    for (int i = max_possible_type_count; i >= 0; --i) {
+        // we want the least total stamp count
+        for (int j = i; j < 4; ++j) {
+            /* generate possible combinations here, larger value first.
+             *
+             * Say, we have stamp value sequence(sorted): 1, 2, 3, 3, 4, 6
+             *
+             * So, the sequences(index) we should generate are: 5 4 3, 5 4
+             * 2, 5 4 1, 5 4 0, 5 3 2, 5 3 1, 5 3 0, ...  and so on.
+             *
+             * Try each one in sequence, once we find an answer or a tie,
+             * return.
+             */
+        }
+     }
+   #+end_src
+
+
+* 1009 Edge Detection
+  [2012-11-07 Wed 08:30]
+
+  For the problem: [[http://poj.org/problem?id=1009]].
+
+  It took me three days. I even wrote a test framework for it in my
+  Makefile.
+
+  The idea is simple: for given a pixel, I need its surrounding 8
+  pixels. The problem is that I could not iterate pixel by pixel
+  considering the run length, 10^9. The solution is to calculate only
+  the boundery points. For example:
+
+  #+begin_verse
+: 0 0 0 1 1 1 0 0 0
+:     ^ ^   ^ ^      these are boundery points
+  #+end_verse
+
+1. One boundery point affects its surrounding 8 points. So, the
+   surrounding points might contribute to the output.
+
+   #+begin_verse
+  : . . . . . . . . .
+  : . . . b b b . . .
+  : . . . b x b . . .
+  : . . . b b b . . .
+  : . . . . . . . . .
+   #+end_verse
+
+2. Only potential points and its surrounding ones might contribute to
+   output.
+
+3. The starting boundery points in the input is a potential one.
+
+   #+begin_verse
+: . . b b a a a a a a . . .
+:         ^ potential one
+   #+end_verse
+
+4. Another potential output points is:
+
+   #+begin_verse
+  : a a . . . b b b b
+  : b b b . . . . . .
+  : ^  potential one
+   #+end_verse
+
+
+* 1008 Maya Calendar
+  [2012-11-02 Fri 20:23]
+
+  Trivial.
+
+
+* 1001 Exponentiation
+  [2012-11-02 Fri 16:51]
+
+  For the problem: [[http://poj.org/problem?id=1001]].
+
+  Two things to implement:
+
+1. Manually multiply two integers in string form. There are many
+   [[http://en.wikipedia.org/wiki/Multiplication_algorithm][Multiplication Algorithm]]s, just choose one you like :)
+
+2. Do Binary Exponentiation, i.e. [[http://en.wikipedia.org/wiki/Exponentiation_by_squaring][Expenetiatiion By Squaring]]. Which is
+   clearly illustrated [[http://mathforum.org/library/drmath/view/55603.html][here]]:
+
+   The fastest exponentiations to perform are exponentiations of the
+   type a^2^n, that is, where the exponent is a power of two. This is
+   because you can find these powers by repeatedly squaring the
+   number. So I can find 5^2 with only one multiplication, 5^4 =
+   (5^2)^2 with only two, 5^8 = ((5^2)^2)^2 in three, and so
+   forth. This leads to the method of binary exponentiation:
+
+   1) Write the exponent as a sum of powers of two.
+   2) Find the base to each of the powers of two that appear in the
+      exponent.
+   3) Multiply those powers together.
+
+   To illustrate with 5^21:
+
+   #+begin_verse
+   : 1) 21 = 16 + 4 + 1
+   : 2) 5^1 = 5
+   :    5^2 = 5*5 = 25
+   :    5^4 = 25 * 25 = 625
+   :    5^8 = 625 * 625 = 390625
+   :    5^16 = 390625 * 390625 = 152587890625
+   : 3) 5^21 = 5^16 * 5^4 * 5 = 476837158203125
+   #+end_verse

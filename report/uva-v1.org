@@ -1,0 +1,118 @@
+#+TITLE: UVa v1
+
+/NOTE/: for the source of the solution, please see [[https://github.com/gongzhitaao/AC-Report]].
+
+* 115 - Climbing Trees
+[2012-10-16 Tue 21:37]
+
+Basically, a problem of finding the [[http://en.wikipedia.org/wiki/Lowest_common_ancestor][least common ancestor]]. Given two
+names =NameA= and =NameB=, find their least common ancestor =NameC=,
+which may or may not exit. Depending on how far they are away from each
+other in the family tree, generate the corresponding output.
+
+I sorted all those names and store parent and children as indices. The
+solution is pretty straightforward. Nothing tricky.
+
+
+* 114 - Simulation Wizardry
+[2012-10-11 Thu 21:26]
+
+For the problem: [[http://acm.uva.es/p/v1/114.html]]
+
+Trivial.
+
+
+* 113 - Power of Cryptography
+[2012-10-04 Thu 18:56]
+
+For the problem: [[http://acm.uva.es/p/v1/113.html]]
+
+Simple. Just two notes:
+
+1. You should be familiar with ranges of important types.  I thought
+   10E101 was too large too express in numerical values and even
+   considered string representation... Forget about it ;(
+
+2. Logarithm is an useful and powerful tool. Just remember to use it!
+
+from [[http://msdn.microsoft.com/en-us/library/s3f49ktz(v=vs.80).aspx][MSDN]]:
+
+| Type Name         | Bytes | Other Names                 | Range of Values                                         |
+|-------------------+-------+-----------------------------+---------------------------------------------------------|
+| int               |     4 | signed                      | –2,147,483,648 to 2,147,483,647                         |
+| unsigned int      |     4 | unsigned                    | 0 to 4,294,967,295                                      |
+| __int64           |     8 | long long, singed long long | –9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 |
+| unsigned __int 64 |     8 | unsigned long long,         | 0 to 18,446,744,073,709,551,615                         |
+| float             |     4 | none                        | 3.4E +/- 38 (7 digits)                                  |
+| double            |     8 | none                        | 1.7E +/- 308 (15 digits)                                |
+
+
+* 112 - Tree Summing
+[2012-10-03 Wed 20:02]
+
+For the problem: [[http://acm.uva.es/p/v1/112.html]]
+
+Just parse the S-expression into a tree and find all the sums in the
+tree.
+
+Actually, we don't have to actually build the tree. What we want is
+all the sums of root-to-leaf. We can traverse the istream in a depth
+first fashion and find out all the sums along the way without
+actually building the tree.
+
+One NASTY note here:
+
+Integers can be negative. So be careful about negative integers like
+=-   1= or =-1=.
+
+
+* 111 - History Grading
+[2012-10-01 Mon 22:29]
+
+For the problem: [[http://acm.uva.es/p/v1/111.html]]
+
+[[http://en.wikipedia.org/wiki/Longest_common_subsequence_problem][Longest common sequence]] problem.
+
+Tow notes here:
+
+  1. The input is order of i^{th} event, so =4 2 3 1= means that
+     the actual event sequence is =4 2 3 1=.
+
+  2. I used =while(!cin.eof())= to test the EOF which gave me couples of
+     WA. Try the normal one =while(cin >> x)= instead.
+
+
+* 110 - Meta-Loopless Sorts
+[2012-09-30 Sun 23:38]
+
+For the problem: [[http://acm.uva.es/p/v1/110.html]]
+
+The core of the this problem is to generate permutations.
+
+
+* 100 - The SCUD Busters
+[2012-09-27 Thu 21:55]
+
+For the description of problem, please refer to
+[[http://acm.uva.es/p/v1/100.html]].
+
+This is a [[http://en.wikipedia.org/wiki/Convex_hull][Convex Hull]] problem.
+
+1. Use [[http://en.wikipedia.org/wiki/Graham_scan][Graham Scan]] to find the convex hull.
+
+2. There is a =left-turn= concept in [[http://en.wikipedia.org/wiki/Graham_scan][Graham Scan]]. Use it to check
+     whether the bomb falls in a kingdom.
+
+3. There seems to be some tricky thing here:
+
+   a. The area of a kingdom contributes to the result only once
+   regardless of how many times a kingdom has been bomded.
+
+   b. If a bomd has hit a kingdom, your program will stop checking
+   further, 'cause the rules says that the regions of kingdoms does
+   not overlap. If your program continues to check whether it falls
+   in some other kingdom, it turns out that sometimes it will
+   actually falls in some other kingdom as well (NOTE: this is only
+   a guess, 'cause the first time my code does not get AC until I
+   revise the logic here.)
+
