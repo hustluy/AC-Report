@@ -1,11 +1,4 @@
-# standard confi
-auto: true
-pygments: true
-lsi: true
-permalink: /:categories/:title/
 
-# custom config
-title: A+B PROBLEM
-author:
-  name: Zhitao Gong
-  homepage: http://www.gongzhitaao.org
+pygments: true
+permalink: /:categories/:title/
+exclude: ["assets/", "_includes"]
