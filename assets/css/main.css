@@ -91,7 +91,7 @@ textarea {
 
 /* ==========================================================================
    Author's custom styles
-   ========================================================================== */
+   ==========================================================================*/
 
 /* .dl-horizontal:before, */
 /* .dl-horizontal:after { */
@@ -100,24 +100,28 @@ textarea {
 /*     content: ""; */
 /* } */
 
-/* .dl-horizontal:after { */
-/*     clear: both; */
-/* } */
+.dl-horizontal:after {
+    clear: both;
+}
 
-/* .dl-horizontal dt { */
-/*     float: left; */
-/*     width: 160px; */
-/*     overflow: hidden; */
-/*     clear: left; */
-/*     text-align: right; */
-/*     text-overflow: ellipsis; */
-/*     white-space: nowrap; */
-/* } */
+.dl-horizontal dt {
+    float: left;
+    width: 100px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
-/* .dl-horizontal dd { */
-/*     margin-left: 180px; */
-/* } */
+.dl-horizontal dd {
+    float: left;
+    margin-left: 20px;
+}
 
+ul {
+    margin: 0;
+}
 
 /* ==========================================================================
    Helper classes

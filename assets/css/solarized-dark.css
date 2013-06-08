@@ -1,6 +1,6 @@
 
 html,body {
-    font: normal normal normal 16px/1.3em Sans-serif;
+    font: normal normal 100 16px/1.5em Sans-serif;
     color: #839496;
     background: #002b36;
 }
@@ -11,6 +11,74 @@ pre {
     border: 1pt solid #AEBDCC;
     padding: 5pt;
     font-size: 90%;
+}
+
+body {
+    color: #839496;
+    background-color: #002b36;
+}
+
+a {
+    color: #b58900;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+a:visited {
+    color:#7F6000;
+}
+
+.speedbar li {
+    list-style-type: none;
+}
+
+.speedbar-button {
+    /* speedbar-button-face */
+    color: #586e75;
+    padding: 0 5px;
+    font-size: smaller;
+}
+.speedbar-directory {
+    /* speedbar-directory-face */
+    color: #268bd2!important;
+    text-decoration: none;
+}
+.speedbar-file {
+    /* speedbar-file-face */
+    color: #839496;
+}
+
+.speedbar-selected {
+    /* speedbar-selected-face */
+    color: #b58900;
+    text-decoration: underline;
+}
+
+.org-date {
+    /* org-date */
+    color: #268bd2;
+    text-decoration: underline;
+}
+.org-level-1 {
+    /* org-level-1 */
+    color: #cb4b16;
+    background-color: #002b36;
+}
+.org-link {
+    /* org-link */
+    color: #b58900;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.org-list-dt {
+    /* org-list-dt */
+    font-weight: bold;
+}
+
+.rainbow-delimiters-depth-1 {
+    /* rainbow-delimiters-depth-1-face */
+    color: #2aa198;
 }
 
 div.outline-2 h2 {
@@ -39,16 +107,6 @@ div.outline-4 h4 {
     border-top: 1px solid #586e75;
     margin-top:30px;
     padding:10px 0;
-}
-
-a {
-    color: #b58900;
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-a:visited {
-    color:#7F6000;
 }
 
 .timestamp{
@@ -80,47 +138,15 @@ a:visited {
     margin-right:60%
 }
 
-@media all {
-    #table-of-contents {
-        font-size: 10pt;
-        position: fixed;
-        right: 0em;
-        top: 0em;
-        color: #dcdccc;
-        -webkit-box-shadow: 0 0 1em #777777;
-        -moz-box-shadow: 0 0 1em #777777;
-        -webkit-border-bottom-left-radius: 5px;
-        -moz-border-radius-bottomleft: 5px;
-        text-align: right;
-        /* ensure doesn't flow off the screen when expanded */
-        max-height: 80%;
-        overflow: auto;
-    }
-
-    #table-of-contents h2 {
-        font-size: 10pt;
-        max-width: 8em;
-        font-weight: normal;
-        padding: 0.05em 0.5em;
-    }
-
-    #table-of-contents #text-table-of-contents {
-        display: none;
-        text-align: left;
-    }
-
-    #table-of-contents:hover #text-table-of-contents {
-        display: block;
-        padding: 0.5em;
-        margin-top: -1.5em;
-    }
+.post-title-group a {
+    font-size: 21px;
+    font-weight: 300;
+    padding-right: 5px;
+    text-decoration: none;
 }
-
-@media screen {
-    #table-of-contents {
-        float: right;
-        border: 1px solid #CCC;
-        max-width: 50%;
-        overflow: auto;
-    }
-} /* END OF @media screen */
+.post-title-group a,.post-title a:visited {
+    color:#b58900;
+}
+.post-title-group {
+    cursor:auto;
+}

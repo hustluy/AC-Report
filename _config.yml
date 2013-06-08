@@ -1,4 +1,4 @@
 
-pygments: true
+paginate: 100
+pygments: false
 permalink: /:categories/:title/
-exclude: ["assets/", "_includes"]

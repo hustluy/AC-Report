@@ -11,43 +11,26 @@
     <meta name="viewport" content="width=device-width">
 
     <link rel="stylesheet" href="/assets/css/normalize.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/gridism.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/solarized_dark.min.css">
     <link rel="stylesheet" href="/assets/css/solarized-dark.css">
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-
-    <script>
-
-    </script>
-
   </head>
-  <body class="wrap wider">
+  <body>
 
     <!--[if lt IE 7]>
         <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-    <div class="grid">
+    {{ content }}
 
-      <div class="unit w-1-5">
-        <ol>
-          <li>poj
-            <ol>v1
-              {% for post in site.categories.poj.v1 %}
-              {{ post.title }}
-              {% endfor %}
-            </ol>
-          </li>
-          <li>uva</li>
-        </ol>
-      </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/highlight.min.js"></script>
 
-      <div class="unit w-1-5">
-        {{ content }}
-      </div>
-    </div>
+    <script>hljs.initHighlightingOnLoad();</script>
 
-  </body>
+</body>
 </html>
