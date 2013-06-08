@@ -2,3 +2,4 @@
 paginate: 100
 pygments: false
 permalink: /:categories/:title/
+exclude: ["report"]

@@ -1,0 +1,60 @@
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">100 - The SCUD Busters</h2>
+<div class="outline-text-2" id="text-1">
+
+<p> <span class="timestamp-wrapper"> <span class="timestamp">2012-09-27 Thu 21:55</span></span><br/>
+</p>
+<p>
+  <a href="http://acm.uva.es/p/v1/100.html">http://acm.uva.es/p/v1/100.html</a>
+</p>
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1">Summary</h3>
+<div class="outline-text-3" id="text-1-1">
+
+
+<p>
+   This is a <a href="http://en.wikipedia.org/wiki/Convex_hull">Convex Hull</a> problem.
+</p>
+<ol>
+<li>Use <a href="http://en.wikipedia.org/wiki/Graham_scan">Graham Scan</a> to find the convex hull.
+
+</li>
+<li>There is a <code>left-turn</code> concept in <a href="http://en.wikipedia.org/wiki/Graham_scan">Graham Scan</a>. Use it to check
+      whether the bomb falls in a kingdom.
+</li>
+</ol>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2">Gotchas</h3>
+<div class="outline-text-3" id="text-1-2">
+
+
+<p>
+   There seems to be some tricky thing here:
+</p>
+<ol>
+<li>The area of a kingdom contributes to the result only once
+      regardless of how many times a kingdom has been bomded.
+
+</li>
+<li>If a bomd has hit a kingdom, your program will stop checking
+      further, 'cause the rules says that the regions of kingdoms does
+      not overlap. If your program continues to check whether it falls
+      in some other kingdom, it turns out that sometimes it will
+      actually falls in some other kingdom as well (NOTE: this is only
+      a guess, 'cause the first time my code does not get AC until I
+      revise the logic here.)
+</li>
+</ol>
+
+</div>
+</div>
+</div>
