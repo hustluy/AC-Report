@@ -1,12 +1,12 @@
 
-# Time-stamp: <2013-04-15 14:16:49 CDT gongzhitaao>
+# Time-stamp: <2013-04-15 17:58:25 CDT gongzhitaao>
 
 SHELL=/bin/bash
 
 CXX=g++
 CXXFLAGS=-lm -lcrypt -g -pipe -Wall -std=c++11
 
-PROGRAM=1013
+PROGRAM=1014
 TEST=$(PROGRAM)-test
 
 define run-test-batch
