@@ -1,5 +1,5 @@
 
-TAR=125
+TAR=126
 
 G++=g++
 CXXFLAGS=-lm -lcrypt -g -pipe -DONLINE_JUDGE -Wall
