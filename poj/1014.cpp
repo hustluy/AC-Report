@@ -1,30 +1,62 @@
-// Dividing
-// Time-stamp: <2013-05-18 18:25:27 CDT gongzhitaao>
+/*!
+  \file   1014.cpp
+  \author Zhitao Gong <me@gongzhitaao.org>
+  \date   Fri Jun 21 20:29:13 2013
 
-#include <iostream>
+  \brief  Dividing
+*/
+
+#include <cstdio>
+#include <algorithm>
 using namespace std;
 
 int main()
 {
-    for (int n = 1; true; ++n) {
+    int cnt[7];
+    int p[60001];
+    int n = 0;
+    while (true) {
 
-        int v[6];
-        int tot = 0;
-
-        bool b = true;
-        for (int i = 0; i < 6; ++i) {
-            cin >> v[i];
-            b ||= v[i];
-            tot += v[i];
+        int sum = 0;
+        for (int i = 1; i <= 6; ++i) {
+            scanf("%d", cnt+i);
+            sum += cnt[i] * i;
         }
 
-        cout << "Collection #" << n << ":" << endl;
+        if (0 == sum) break;
 
-        if (1 == tot % 2) cout << "Can't be divided." << endl;
-        else {
+        printf("Collection #%d:\n", ++n);
 
+        if (1 == sum % 2) {
+            printf("Can't be divided.\n\n");
+        } else {
+            sum /= 2;
+            fill_n(p, sum+1, 0);
+            fill_n(p, cnt[1]+1, 1);
+
+            for (int i = 2; i <= 6; ++i) {
+                if (1 == p[sum]) break;
+                if (0 == cnt[i]) continue;
+                int tmp = cnt[i];
+                for (int k = 1; k < tmp; tmp -= k, k *= 2) {
+                    for (int j = sum; j >= i*k; --j) {
+                        if (1 == p[j]) continue;
+                        if (1 == p[j-i*k]) {
+                            p[j] = 1;
+                        }
+                    }
+                }
+                for (int j = sum; j >= i*tmp; --j) {
+                    if (1 == p[j]) continue;
+                    if (1 == p[j-i*tmp]) {
+                        p[j] = 1;
+                    }
+                }
+            }
+
+            if (1 == p[sum]) printf("Can be divided.\n\n");
+            else printf("Can't be divided.\n\n");
         }
     }
-
     return 0;
 }
